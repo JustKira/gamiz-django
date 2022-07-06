@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "gaimiz-sheets",
+  "private_key_id": "3cd9ec2cff2eadf7a764e25f67eef66ab3cf131e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC1HY4bffUqHx6W\nP8wFf9Te0/D/XD60p5rAfbYwr2hQMaUIaZbETOLNzsIwmemA6bPOuAkETVKndetn\n5uNd5i+OyTkST1AxfsUZuBpHnQH0XGXAeyQQ6mxENpxt+isd1CmrTX0FPCBYRR5A\nCK5xYmTLg8nFbdE/Io1gP97ir+yeqz7en1mrjf94jhYgSSbFx5u9Xknk80ZmM2VG\nNpyBx2R998eYMiDoBVqcRMuQD1GMjaIDcQNFjOYZR3wvdtF1impKU9DLI+wBjokZ\nj7VKUGGwy8kLQUlxiCPUXWW9I3DDbiGwVNQStL5jOz4gisHkk6+L7vpaq/7qtTf2\nz2jFEa9HAgMBAAECggEAWPrPtb8AozSNvOhT7kG6zcyXYoWpwuxy8W3xg+KxX3C8\ncTEa4o8ZgF47dlAvcWefsIgm2ee5G0+qGy5KdvffVomSkeXIcsCiyftyYcuHyctZ\nLCLzeaIKFcs0uC1HYIy6+g+EQ/2hsGwoq/H37fmWpou1JdtJiXiKt4Y5lOo0WFDa\nyIW/WSOJksfNJbTtuKOEUd4pmFRgb4MdyLP+u0CdsWrlCvKxwBYajEGpip3vH/bS\n6CqB4pJli8edy+ctChl9AdCIrg+MPXfny8HQFRQMfihWZL1JsKjnrv24oXVvcCMC\nmWkVp62MdCian2ReI9HYTLRZ+XeLp7GW4hsZGbVI6QKBgQDfJG9ZfCge75rNLnX4\njumIOCFeDc9oi+U4v+g/E0z46NXmghSwgGWj00RyIUbMSVXnh7B6K3XzqxZoaBch\nvsar+ENtBSakBWyib5Rtu1QEM86tevr4kPTnFgQFLLgHFhPzFp+QvREXnVXzYupR\nhZ+CqWpPOnypu72c+sY8OlpNiQKBgQDPyOBos3SxJBPxpr1fJ929GUjN4JwhV1NJ\nudFlk0fA3i9M/FcV8NyuPzncKeWKHg83LIWTNfy5UUjp3YZ4sf5spnNsLUEUkOzI\nYrRg3wXUiCg5oykg7fnGEJosHUokmVMFNWG87hGgrU+aAOlZRJvIrtDtqRiCNi5E\ndgHXctcyTwKBgAnINh1tJPEePeIKzF8mHLS9CTFvV41UvKq9Nvg052XuBxqAz1lh\nd5Mz+scqEEl6WYq51xG0AAq7kFLpZUI0c88sJgCMfkIofresPoyE7sz0XHYccw4c\nhK/wtiJn8HVXEW7RqhMVRr+LRS5TQsRqIDEBLkjk3nwuX8SW9cPEJxtJAoGAGDqa\nQFs8rjNAyBrjVic16gj6vlcEnbarFZu/WRLVeR3vchCyrvJJKWBiBNQ12ecrawmc\nAdB3ybw6vlqAha5rtouqReD5B8bmdW9dDTa0XVYLKr1l3Fsjlv70m1RHAwGF9sOE\nxB0WnR/YemLE0w33BG2uGyhunTBoML9583+GrG0CgYA3LFRN18/P97CAAPYVEJWq\nLJPVibTb/G/SucXk/pUvafBxZAYdyre/wWMs2UyANe7Ji9MC0JC6jZGX0ZEblOmi\n92rIcuSQeti6XYiJ/D7BTOlG5fn+VKzsxELatZ8LsVZDHCsULZ0t/kWIF11rRV4W\nKWbBALazw1+RG/pNe5n9tg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gaimiz-website@gaimiz-sheets.iam.gserviceaccount.com",
+  "client_id": "108453447215156885143",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gaimiz-website%40gaimiz-sheets.iam.gserviceaccount.com"
+}
