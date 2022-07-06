@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-n!8+nwgm+*a67lj^ed&r4jdx+m$!si%003j^i65&nk5004blg4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gaimiz-backend.herokuapp.com']
 
 AUTH_USER_MODEL = 'customUser.CustomUser'
 # Application definition
