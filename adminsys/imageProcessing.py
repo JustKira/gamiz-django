@@ -1,8 +1,5 @@
 import cv2 as cv
 from pathlib import Path
-import os
-from django.conf import settings
-import matplotlib.pyplot as plt
 from django.conf import settings
 
 

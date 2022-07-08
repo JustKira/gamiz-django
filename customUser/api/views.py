@@ -42,7 +42,7 @@ def userCreate(request):
         serializer.save()
         return Response("Account Created Succesfully")
     else:
-        return Response(serializer._errors)
+        return Response("Error Please try again")
 
 
 @api_view(['PATCH'])
