@@ -55,11 +55,11 @@ def orderCreate(request, pk):
 
     if serializer.is_valid():
         obj = serializer.save()
-        searchOrder = ['prod', 'model', 'year', 'back', 'keyboard', 'customimage', 'modelimage', 'back_dims_x', 'back_dims_y', 'keyboard_dims_x', 'keyboard_dims_y',
+        searchOrder = ['order_type', 'prod', 'model', 'year', 'back', 'keyboard', 'customimage', 'modelimage', 'back_dims_x', 'back_dims_y', 'keyboard_dims_x', 'keyboard_dims_y',
                        'other1_part', 'other1_dims_x', 'other1_dims_y', 'other2_part', 'other2_dims_x', 'other2_dims_y', 'other3_part', 'other3_dims_x', 'other3_dims_y', 'withLogo']
         orderList = json.loads(obj.order_json)
         userdata_cleaned = [userData.email, userData.firstname,
-                            userData.lastname, str(userData.birthday), str(userData.phone), userData.location]
+                            userData.lastname, str(userData.birthday), str(userData.phone), userData.governorate, userData.area, userData.district]
         res = []
 
         for key in searchOrder:
@@ -70,10 +70,10 @@ def orderCreate(request, pk):
 
         final_res = userdata_cleaned + res
         print(final_res)
-        update_order_sheet(final_res)
-        return Response("Order Was Sent Succesfully")
+        # update_order_sheet(final_res)
+        return Response("success")
     else:
-        return Response("Error please try again")
+        return Response("error")
 
 
 @api_view(['POST'])
@@ -97,12 +97,12 @@ def orderCreate_console(request, pk):
     if serializer.is_valid():
         obj = serializer.save()
 
-        searchOrder = ['model', 'type', 'body', 'control',
+        searchOrder = ['order_type', 'model', 'type', 'body', 'control',
                        'modelimage', 'customimage', 'modelimage', 'withLogo']
         orderList = json.loads(obj.order_json)
 
         userdata_cleaned = [userData.email, userData.firstname,
-                            userData.lastname, str(userData.birthday), str(userData.phone), userData.location]
+                            userData.lastname, str(userData.birthday), str(userData.phone), userData.governorate, userData.area, userData.district]
         res = []
 
         for key in searchOrder:
@@ -114,9 +114,9 @@ def orderCreate_console(request, pk):
         final_res = userdata_cleaned + res
         print(final_res)
         # update_order_sheet(final_res)
-        return Response("Order Was Sent Succesfully")
+        return Response("success")
     else:
-        return Response("Error please try again")
+        return Response("error")
 
 
 @api_view(['PATCH'])

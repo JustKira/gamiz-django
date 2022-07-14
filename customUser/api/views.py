@@ -7,6 +7,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import UserSerializer
 from customUser.models import CustomUser
 from django.contrib.auth import authenticate
+from rest_framework.permissions import AllowAny
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -34,15 +35,17 @@ def getUser(request, pk):
 
 
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def userCreate(request):
 
     serializer = UserSerializer(data=request.data)
     print(request.data)
     if serializer.is_valid():
         serializer.save()
-        return Response("Account Created Succesfully")
+        return Response("success")
     else:
-        return Response("Error Please try again")
+        print(serializer.errors)
+        return Response(serializer.errors)
 
 
 @api_view(['PATCH'])
@@ -51,7 +54,7 @@ def userUpdate(request, pk):
     serializer = UserSerializer(instance=user, data=request.data, partial=True)
     if serializer.is_valid():
         serializer.save()
-
+    print(serializer.data)
     return Response(serializer.data)
 
 
