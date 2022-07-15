@@ -86,6 +86,7 @@ def refresh(request):
     list = ImageList.objects.get(id=1)
     list.list = index
     list.save()
+
     return Response('Refreshed')
 
 
