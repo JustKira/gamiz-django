@@ -28,8 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['gaimiz-backend.herokuapp.com', '127.0.0.1',
-                 'starfish-app-iw84r.ondigitalocean.app', 'localhost']
+ALLOWED_HOSTS = [os.getenv('ALLOWED_HOST')]
 
 AUTH_USER_MODEL = 'customUser.CustomUser'
 # Application definition
