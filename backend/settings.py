@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-n!8+nwgm+*a67lj^ed&r4jdx+m$!si%003j^i65&nk5004blg4
 DEBUG = True
 
 ALLOWED_HOSTS = ['gaimiz-backend.herokuapp.com', '127.0.0.1',
-                 'https://starfish-app-iw84r.ondigitalocean.app/']
+                 'starfish-app-iw84r.ondigitalocean.app']
 
 AUTH_USER_MODEL = 'customUser.CustomUser'
 # Application definition
