@@ -9,7 +9,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .serializers import EventSerializer, ImageListSerializer
 from adminsys.models import Event, ImageList
-from adminsys.imageProcessing import customizeMockup, customizeMockup_console
+# from adminsys.imageProcessing import customizeMockup, customizeMockup_console
 from adminsys.onedriveapi import refreshLaptops
 from pathlib import Path
 import requests
@@ -73,15 +73,15 @@ def refresh(request):
         url = rl
         r = requests.get(url, allow_redirects=True)
 
-        open(os.path.join(settings.MEDIA_ROOT,
-                          'products/raw/product{}.png'.format(index)),
-             'wb').write(r.content)
-        customizeMockup(os.path.join(settings.MEDIA_ROOT,
-                                     'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
-                                                                                               'products/done/product{}'.format(index)))
-        customizeMockup_console(os.path.join(settings.MEDIA_ROOT,
-                                             'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
-                                                                                                       'products/done/product_console{}'.format(index)))
+        # open(os.path.join(settings.MEDIA_ROOT,
+        #                   'products/raw/product{}.png'.format(index)),
+        #      'wb').write(r.content)
+        # customizeMockup(os.path.join(settings.MEDIA_ROOT,
+        #                              'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
+        #                                                                                        'products/done/product{}'.format(index)))
+        # customizeMockup_console(os.path.join(settings.MEDIA_ROOT,
+        #                                      'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
+        #                                                                                                'products/done/product_console{}'.format(index)))
         index += 1
     list = ImageList.objects.get(id=1)
     list.list = index

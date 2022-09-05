@@ -1,25 +1,25 @@
-import cv2 as cv
-from pathlib import Path
-import os
+# import cv2 as cv
+# from pathlib import Path
+# import os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-def customizeMockup(path, name):
-    img = cv.imread(path)
-    mockup1 = cv.imread(os.path.abspath('media/lap-back.png'))
-    mockup2 = cv.imread(os.path.abspath('media/lap-keyboard.png'))
-    mask1 = cv.inRange(mockup1, (0, 0, 0), (200, 100, 100))
-    mask2 = cv.inRange(mockup2, (0, 0, 0), (200, 100, 100))
-    l1, w1 = mask1.shape
-    l2, w2 = mask2.shape
-    img_out1 = cv.resize(img, (w1, l1))
-    img_out2 = cv.resize(img, (w2, l2))
-    img_out1 = cv.bitwise_and(img_out1, img_out1, mask=mask1)
-    img_out2 = cv.bitwise_and(img_out2, img_out2, mask=mask2)
-    cv.imwrite(os.path.abspath(
-        'media/products/done/{}_b.png'.format(name)), img_out1)
-    cv.imwrite(os.path.abspath(
-        'media/products/done/{}_k.png'.format(name)), img_out2)
-    # mask1 = np.reshape(mask1, [w,l,3])
-    return img_out1, img_out2
+# def customizeMockup(path, name):
+#     img = cv.imread(path)
+#     mockup1 = cv.imread(os.path.abspath('media/lap-back.png'))
+#     mockup2 = cv.imread(os.path.abspath('media/lap-keyboard.png'))
+#     mask1 = cv.inRange(mockup1, (0, 0, 0), (200, 100, 100))
+#     mask2 = cv.inRange(mockup2, (0, 0, 0), (200, 100, 100))
+#     l1, w1 = mask1.shape
+#     l2, w2 = mask2.shape
+#     img_out1 = cv.resize(img, (w1, l1))
+#     img_out2 = cv.resize(img, (w2, l2))
+#     img_out1 = cv.bitwise_and(img_out1, img_out1, mask=mask1)
+#     img_out2 = cv.bitwise_and(img_out2, img_out2, mask=mask2)
+#     cv.imwrite(os.path.abspath(
+#         'media/products/done/{}_b.png'.format(name)), img_out1)
+#     cv.imwrite(os.path.abspath(
+#         'media/products/done/{}_k.png'.format(name)), img_out2)
+#     # mask1 = np.reshape(mask1, [w,l,3])
+#     return img_out1, img_out2

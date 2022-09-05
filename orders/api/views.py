@@ -5,8 +5,8 @@ from django.http import JsonResponse
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
-from adminsys.imageProcessing import customizeMockup
-from adminsys.imageProcessing import customizeMockup_console
+# from adminsys.imageProcessing import customizeMockup
+# from adminsys.imageProcessing import customizeMockup_console
 from .serializers import CISerializer, OrderSerializer
 from orders.models import Order, CustomImage
 from django.contrib.auth import authenticate
@@ -40,10 +40,10 @@ def orderCreate(request, pk):
 
     if(pk != "0"):
         try:
-            shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\done\customProduct{}_b.png'.format(
-                pk)), os.path.join(settings.MEDIA_ROOT, 'products\custom\done\customProduct{}_b.png'.format(pk)))
-            shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\done\customProduct{}_k.png'.format(
-                pk)), os.path.join(settings.MEDIA_ROOT, 'products\custom\done\customProduct{}_k.png'.format(pk)))
+            # shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\done\customProduct{}_b.png'.format(
+            #     pk)), os.path.join(settings.MEDIA_ROOT, 'products\custom\done\customProduct{}_b.png'.format(pk)))
+            # shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\done\customProduct{}_k.png'.format(
+            #     pk)), os.path.join(settings.MEDIA_ROOT, 'products\custom\done\customProduct{}_k.png'.format(pk)))
             shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\customProduct{}.png'.format(
                 pk)), os.path.join(settings.MEDIA_ROOT, 'products/custom/raw/customProduct{}.png'.format(pk)))
         except:
@@ -81,10 +81,10 @@ def orderCreate_console(request, pk):
 
     if(pk != "0"):
         try:
-            shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\done\customProduct_console{}_console_l.png'.format(
-                pk)), os.path.join(settings.MEDIA_ROOT, 'products\custom\done\customProduct_console{}_console_l.png'.format(pk)))
-            shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\done\customProduct_console{}_console_r.png'.format(
-                pk)), os.path.join(settings.MEDIA_ROOT, 'products\custom\done\customProduct_console{}_console_r.png'.format(pk)))
+            # shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\done\customProduct_console{}_console_l.png'.format(
+            #     pk)), os.path.join(settings.MEDIA_ROOT, 'products\custom\done\customProduct_console{}_console_l.png'.format(pk)))
+            # shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\done\customProduct_console{}_console_r.png'.format(
+            #     pk)), os.path.join(settings.MEDIA_ROOT, 'products\custom\done\customProduct_console{}_console_r.png'.format(pk)))
             shutil.move(os.path.join(settings.MEDIA_ROOT, 'tmp\customProduct_console{}.png'.format(
                 pk)), os.path.join(settings.MEDIA_ROOT, 'products/custom/raw/customProduct_console{}.png'.format(pk)))
         except:
@@ -154,8 +154,8 @@ def custom_image(request, pk):
 
     print('>>>> ' + os.path.join(settings.MEDIA_ROOT, path))
     tmp_file = os.path.join(settings.MEDIA_ROOT, path)
-    customizeMockup(
-        tmp_file, f"{settings.MEDIA_ROOT}/tmp/done/customProduct{value}")
+    # customizeMockup(
+    #     tmp_file, f"{settings.MEDIA_ROOT}/tmp/done/customProduct{value}")
 
     return JsonResponse({"id": value})
 
@@ -176,8 +176,8 @@ def custom_image_console(request, pk):
 
     print('>>>> ' + os.path.join(settings.MEDIA_ROOT, path))
     tmp_file = os.path.join(settings.MEDIA_ROOT, path)
-    customizeMockup_console(
-        tmp_file, f"{settings.MEDIA_ROOT}/tmp/done/customProduct_console{value}")
+    # customizeMockup_console(
+    #     tmp_file, f"{settings.MEDIA_ROOT}/tmp/done/customProduct_console{value}")
 
     return JsonResponse({"id": value})
 
