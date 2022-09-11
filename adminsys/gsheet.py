@@ -5,14 +5,18 @@ import pandas as pd
 from django.core.files.base import ContentFile
 
 
-def update_order_sheet(order_list):
+def update_order_sheet(order_list, laptop):
+
     gc = gspread.service_account(filename=os.path.join(settings.BASE_DIR,
                                                        'adminsys/gaimiz-sheets-3cd9ec2cff2e.json'))
 
     # get the instance of the Spreadsheet
     sheet = gc.open_by_url(
         'https://docs.google.com/spreadsheets/d/1yJfYWPpLAO1ZjPmRH3ob0dpwiabuMQAX2ODJv1Uxvng/edit#gid=0')
-    orders_sheet = sheet.worksheet("Website Orders")
+    if laptop:
+        orders_sheet = sheet.worksheet("Website Laptop Orders")
+    else:
+        orders_sheet = sheet.worksheet("Website Console Orders")
     records_data = orders_sheet.get_all_records()
     records_df = pd.DataFrame.from_dict(records_data)
     print(records_df.tail())

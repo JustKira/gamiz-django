@@ -69,8 +69,8 @@ def orderCreate(request, pk):
                 res.append("N/A")
 
         final_res = userdata_cleaned + res
-        print(final_res)
-        # update_order_sheet(final_res)
+        print(len(final_res))
+        update_order_sheet(final_res, True)
         return Response("success")
     else:
         return Response("error")
@@ -98,7 +98,7 @@ def orderCreate_console(request, pk):
         obj = serializer.save()
 
         searchOrder = ['order_type', 'model', 'type', 'body', 'control',
-                       'modelimage', 'customimage', 'modelimage', 'withLogo']
+                       'modelimage', 'customimage', 'withLogo']
         orderList = json.loads(obj.order_json)
 
         userdata_cleaned = [userData.email, userData.firstname,
@@ -112,8 +112,8 @@ def orderCreate_console(request, pk):
                 res.append("N/A")
 
         final_res = userdata_cleaned + res
-        print(final_res)
-        # update_order_sheet(final_res)
+        print(len(final_res))
+        update_order_sheet(final_res, False)
         return Response("success")
     else:
         return Response("error")
