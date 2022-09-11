@@ -57,7 +57,6 @@ def userCreate(request):
         serializer.save()
 
         user = CustomUser.objects.get(email=request.data['email'])
-        user.is_active = False
         user.save()
         current_site = get_current_site(request).domain
 
