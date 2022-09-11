@@ -16,9 +16,9 @@ from datetime import timedelta
 import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# env = environ.Env()
-# environ.Env.read_env()
-
+env = environ.Env()
+environ.Env.read_env()
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -45,8 +45,10 @@ INSTALLED_APPS = [
     'customUser',
     'orders',
     'adminsys',
+
     # 3rd-Party
     'rest_framework',
+    'django_rest_passwordreset',
     'corsheaders',
 ]
 
@@ -87,7 +89,9 @@ TEMPLATES = [
         },
     },
 ]
-
+TEMPLATE_DIRS = (
+    os.path.join(SETTINGS_PATH, 'templates'),
+)
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
@@ -180,3 +184,23 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+def verified_callback(user):
+    user.is_active = True
+
+
+# EMAIL_VERIFIED_CALLBACK = verified_callback
+# EMAIL_FROM_ADDRESS = 'shighgamerloleu@gmail.com'
+# EMAIL_MAIL_SUBJECT = 'Confirm your email'
+# EMAIL_MAIL_HTML = 'email.html'
+# EMAIL_MAIL_PLAIN = 'email.txt'
+# EMAIL_MAIL_TOKEN_LIFE = 60 * 60
+# EMAIL_MAIL_PAGE_TEMPLATE = 'confirm_template.html'
+# EMAIL_PAGE_DOMAIN = 'http://127.0.0.1/8000'
+# EMAIL_MULTI_USER = True  # optional (defaults to False)
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'shighgamerloleu@gmail.com'
+EMAIL_HOST_PASSWORD = 'hzithcnbhpxjahdm'
