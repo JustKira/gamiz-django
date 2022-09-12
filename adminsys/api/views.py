@@ -59,7 +59,10 @@ def eventUpdate(request, pk):
 def eventDelete(request, pk):
     event = Event.objects.get(id=pk)
     print(f"{settings.MEDIA_ROOT}\{event.image}")
-    os.remove(f"{settings.MEDIA_ROOT}\{event.image}")
+    try:
+        os.remove(f"{settings.MEDIA_ROOT}\{event.image}")
+    except:
+        os.remove(f"{settings.MEDIA_ROOT}{event.image}")
     event.delete()
     return Response('Deleted')
 
