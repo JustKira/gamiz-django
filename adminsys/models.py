@@ -20,5 +20,11 @@ class Event(models.Model):
 class ImageList(models.Model):
     list = models.CharField(max_length=100)
 
+    @classmethod
+    def create(cls, list):
+        ilist = cls(list=list)
+        # do something with the book
+        return ilist
+
     def __str__(self):
         return str(self.id)

@@ -85,9 +85,13 @@ def refresh(request):
         #                                      'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
         #                                                                                                'products/done/product_console{}'.format(index)))
         index += 1
-    list = ImageList.objects.get(id=1)
-    list.list = index
-    list.save()
+    try:
+        list = ImageList.objects.get(id=1)
+        list.list = index
+        list.save()
+    except:
+        list = ImageList.create(index)
+        list.save()
 
     return Response('Refreshed')
 
