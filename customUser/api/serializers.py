@@ -20,9 +20,10 @@ class UserSerializer(serializers.ModelSerializer):
             username=validated_data['username'],
             birthday=validated_data['birthday'],
             phone=validated_data['phone'],
-            governorate=validated_data['governorate'],
+            street_name=validated_data['street_name'],
+            building=validated_data['building'],
             area=validated_data['area'],
-            district=validated_data['district'],
+            city=validated_data['city'],
         )
 
         return user

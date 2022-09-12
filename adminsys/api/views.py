@@ -57,7 +57,9 @@ def eventUpdate(request, pk):
 
 @api_view(['DELETE'])
 def eventDelete(request, pk):
-    event = EventSerializer.objects.get(id=pk)
+    event = Event.objects.get(id=pk)
+    print(f"{settings.MEDIA_ROOT}\{event.image}")
+    os.remove(f"{settings.MEDIA_ROOT}\{event.image}")
     event.delete()
     return Response('Deleted')
 

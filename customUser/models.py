@@ -20,13 +20,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=50, unique=True)
     birthday = models.DateField(null=True)
     phone = models.IntegerField(null=True)
-    governorate = models.CharField(max_length=50, null=True)
+    city = models.CharField(max_length=50, null=True)
     area = models.CharField(max_length=50, null=True)
-    district = models.CharField(max_length=50, null=True)
+    building = models.CharField(max_length=50, null=True)
+    street_name = models.CharField(max_length=50, null=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
     is_verified = models.BooleanField(default=False)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
