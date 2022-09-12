@@ -62,7 +62,10 @@ def eventDelete(request, pk):
     try:
         os.remove(f"{settings.MEDIA_ROOT}\{event.image}")
     except:
-        os.remove(f"{settings.MEDIA_ROOT}{event.image}")
+        try:
+            os.remove(f"{settings.MEDIA_ROOT}/{event.image}")
+        except:
+            pass
     event.delete()
     return Response('Deleted')
 
