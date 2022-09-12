@@ -11,6 +11,9 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from .cUserManager import CustomUserManager
+from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.conf import settings
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -46,13 +49,11 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
 
     email_plaintext_message = f" token = {reset_password_token.key}"
 
-    send_mail(
-        # title:
-        "Password Reset for {title}".format(title="Some website title"),
-        # message:
-        email_plaintext_message,
-        # from:
-        "noreply@somehost.local",
-        # to:
-        [reset_password_token.user.email]
-    )
+    msg_txt = render_to_string(
+        'token_recovery.txt', {'token': reset_password_token.key})
+    msg_html = render_to_string(
+        'token_recovery.html', {'token': reset_password_token.key})
+    email = EmailMultiAlternatives(
+        subject="Password Reset for {title}".format(title="GAIMIZ"), body=msg_txt, from_email=settings.EMAIL_HOST_USER, to=[reset_password_token.user.email])
+    email.attach_alternative(msg_html, "text/html")
+    email.send()
