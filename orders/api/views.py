@@ -59,7 +59,7 @@ def orderCreate(request, pk):
                        'other1_part', 'other1_dims_x', 'other1_dims_y', 'other2_part', 'other2_dims_x', 'other2_dims_y', 'other3_part', 'other3_dims_x', 'other3_dims_y', 'withLogo']
         orderList = json.loads(obj.order_json)
         userdata_cleaned = [userData.email, userData.firstname,
-                            userData.lastname, str(userData.birthday), str(userData.phone), userData.governorate, userData.area, userData.district]
+                            userData.lastname, str(userData.birthday), str(userData.phone), userData.city, userData.area, userData.street_name, userData.building]
         res = []
 
         for key in searchOrder:
@@ -102,7 +102,7 @@ def orderCreate_console(request, pk):
         orderList = json.loads(obj.order_json)
 
         userdata_cleaned = [userData.email, userData.firstname,
-                            userData.lastname, str(userData.birthday), str(userData.phone), userData.governorate, userData.area, userData.district]
+                            userData.lastname, str(userData.birthday), str(userData.phone), userData.city, userData.area, userData.street_name, userData.building]
         res = []
 
         for key in searchOrder:
