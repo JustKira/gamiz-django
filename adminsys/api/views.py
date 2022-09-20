@@ -74,16 +74,16 @@ def eventDelete(request, pk):
 # @permission_classes([IsAuthenticated, IsAdminUser])
 def refresh(request):
     data = request.data
-    print(data['code'])
     rl_download = refreshLaptops(data['code'])
+    print(rl_download)
     index = 0
     for rl in rl_download:
         url = rl
         r = requests.get(url, allow_redirects=True)
 
-        # open(os.path.join(settings.MEDIA_ROOT,
-        #                   'products/raw/product{}.png'.format(index)),
-        #      'wb').write(r.content)
+        open(os.path.join(settings.MEDIA_ROOT,
+                          'products/raw/product{}.png'.format(index)),
+             'wb').write(r.content)
         # customizeMockup(os.path.join(settings.MEDIA_ROOT,
         #                              'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
         #                                                                                        'products/done/product{}'.format(index)))
