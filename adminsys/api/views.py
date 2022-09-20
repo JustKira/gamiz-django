@@ -82,9 +82,9 @@ def refresh(request):
         r = requests.get(url, allow_redirects=True)
         d = r.headers['content-disposition']
         fname = re.findall("filename=(.+)", d)[0]
-
+        #example : media/products/raw/product7.png
         open(os.path.join(settings.MEDIA_ROOT,
-                          'products/raw/{}.png'.format(fname[:fname.find('.')].strip("'").strip('"'))),
+                          'products/raw/product{}.png'.format(fname[:fname.find('.')].strip("'").strip('"'))),
              'wb').write(r.content)
         print(fname[:fname.find('.')].strip("'").strip('"'))
         # customizeMockup(os.path.join(settings.MEDIA_ROOT,
