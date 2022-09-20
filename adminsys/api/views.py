@@ -94,7 +94,6 @@ def refresh(request):
         #                                      'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
         #                                                                                                'products/done/product_console{}'.format(index)))
         index += 1
-        break
     try:
         list = ImageList.objects.get(id=1)
         list.list = index
