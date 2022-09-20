@@ -14,7 +14,7 @@ from adminsys.onedriveapi import refreshLaptops
 from pathlib import Path
 import requests
 import os
-
+import re
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -75,15 +75,18 @@ def eventDelete(request, pk):
 def refresh(request):
     data = request.data
     rl_download = refreshLaptops(data['code'])
-    print(rl_download)
     index = 0
+
     for rl in rl_download:
         url = rl
         r = requests.get(url, allow_redirects=True)
+        d = r.headers['content-disposition']
+        fname = re.findall("filename=(.+)", d)[0]
 
         open(os.path.join(settings.MEDIA_ROOT,
-                          'products/raw/product{}.png'.format(index)),
+                          'products/raw/{}.png'.format(fname[:fname.find('.')].strip("'").strip('"'))),
              'wb').write(r.content)
+        print(fname[:fname.find('.')].strip("'").strip('"'))
         # customizeMockup(os.path.join(settings.MEDIA_ROOT,
         #                              'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
         #                                                                                        'products/done/product{}'.format(index)))
@@ -91,6 +94,7 @@ def refresh(request):
         #                                      'products/raw/product{}.png'.format(index)), os.path.join(settings.MEDIA_ROOT,
         #                                                                                                'products/done/product_console{}'.format(index)))
         index += 1
+        break
     try:
         list = ImageList.objects.get(id=1)
         list.list = index
