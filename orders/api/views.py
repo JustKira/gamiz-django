@@ -58,7 +58,7 @@ def orderCreate(request, pk):
         searchOrder = ['order_type', 'prod', 'model', 'year', 'back', 'keyboard', 'customimage', 'modelimage', 'back_dims_x', 'back_dims_y', 'keyboard_dims_x', 'keyboard_dims_y',
                        'other1_part', 'other1_dims_x', 'other1_dims_y', 'other2_part', 'other2_dims_x', 'other2_dims_y', 'other3_part', 'other3_dims_x', 'other3_dims_y', 'withLogo']
         orderList = json.loads(obj.order_json)
-        userdata_cleaned = [userData.email, userData.firstname,
+        userdata_cleaned = [userData.email, userData.firstname,userData.username,
                             userData.lastname, str(userData.birthday), str(userData.phone), userData.city, userData.area, userData.street_name, userData.building]
         res = []
 
@@ -101,7 +101,7 @@ def orderCreate_console(request, pk):
                        'modelimage', 'customimage', 'withLogo']
         orderList = json.loads(obj.order_json)
 
-        userdata_cleaned = [userData.email, userData.firstname,
+        userdata_cleaned = [userData.email, userData.firstname,userData.username,
                             userData.lastname, str(userData.birthday), str(userData.phone), userData.city, userData.area, userData.street_name, userData.building]
         res = []
 
